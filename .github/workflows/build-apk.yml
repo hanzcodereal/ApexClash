@@ -17,8 +17,9 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      # Android SDK sudah terpasang di runner GitHub; cukup terima lisensinya.
+      - name: Terima lisensi Android SDK
+        run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null || true
 
       - name: Setup Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
